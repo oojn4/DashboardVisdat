@@ -232,7 +232,7 @@ Data yang telah diseleksi kemudian dilakukan visualisasi dengan mengggunakan Tab
    [![Table][table]](images/table.png)
 
 2. Bar chart
-   [![Barchart][barchart]](images/barchart1.png)
+   [![Barchart][barchart1]](images/barchart1.png)
 
 3. Line chart
 
