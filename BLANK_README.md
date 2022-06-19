@@ -76,7 +76,7 @@
 
 ## Tentang Projek ini
 
-[![Product Name Screen Shot][images/dashboard.png]](images/dashboard.png)
+[![Product Name Screen Shot][dashboard-black]](images/dashboard.png)
 
 Jumlah investor pasar modal selama 2018 -Maret 2022 mengalami kenaikan jumlah investor sebanyak 223.39 persen. Sekitar 85 -90 persen investor akan gagal, hal tersebut disebabkan para investor cenderung spekulatif dalam berinvestasi khususnya pada instrumen saham. Tindakan spekulatif dapat menjerumuskan investor kedalam kerugian. Dashboard interaktif adalah dashboard yang dalam memvisualisasikan data membutuhkan perhatian pengguna, artinya informasi dapat ditampilkan secara dinamis tergantung apa yang diatur oleh pengguna. Dengan melakukan visualisasi data laporan keuangan perusahaan secara interaktif dapat dengan mudah memahami fundamental dari suatu perusahaan dan tentunya akan mengurangi tindakan spekulatif dalam berinvestasi. Dewan Syariah Nasional - Majelis Ulama Indonesia (DSN-MUI) mengeluarkan fatwa yang mengatur Prinsip Syariah di Pasar Modal termasuk pengkategorisasi saham syariah. Pada projek ini akan mengimplementasikan dashboard interaktif pada data laporan keuangan untuk menganalisis fundamental saham ISSI yang bersumber dari Yahoo Finance.
 
@@ -208,3 +208,4 @@ Project Link: [https://github.com/oojn4/DashboardVisdat](https://github.com/oojn
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
+[dashboard-black]: images/dashboard.png
