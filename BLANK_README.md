@@ -228,12 +228,18 @@ Setelah mendapatkan saham syariah, dilakukan preparasi data untuk membentuk vari
 Data yang telah diseleksi kemudian dilakukan visualisasi dengan mengggunakan Tableu. Setiap data akan divisualisasikan kedalam berbagai bentuk visualisasi. Berikut merupakan jenis visualisasi dan beberapa contoh variabel yang digunakan.
 
 1. Table
+
    [![Table][table]](images/table.png)
+
 2. Bar chart
-   [![Barchart][barchart]](images/barchart.png)
+   [![Barchart][barchart]](images/barchart1.png)
+
 3. Line chart
+
    [![Linechart][linechart]](images/linechart.png)
+
 4. Candle stick
+
    [![Candlestick][candlestick]](images/candlestick.png)
 
 ### Pembuatan Dashboard
