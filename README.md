@@ -293,7 +293,7 @@ Jika hanya ingin melihat cukup mengunjungi laman <a href="https://public.tableau
 
 <div id="contact" align = "justify">
 Fauzan Faldy Anggita - @fauzanfaldy4@gmail..com
-
+Linkedin : [linkedin-url](https://linkedin.com/in/fauzanfaldy)
 Project Link: [https://github.com/oojn4/DashboardVisdat](https://github.com/oojn4/DashboardVisdat)
 
 </div>
