@@ -76,6 +76,8 @@
 
 ## Tentang Projek ini
 
+Jumlah investor pasar modal selama 2018 -Maret 2022 mengalami kenaikan jumlah investor sebanyak 223.39 persen. Sekitar 85 -90 persen investor akan gagal, hal tersebut disebabkan para investor cenderung spekulatif dalam berinvestasi khususnya pada instrumen saham. Tindakan spekulatif dapat menjerumuskan investor kedalam kerugian. Dashboard interaktif adalah dashboard yang dalam memvisualisasikan data membutuhkan perhatian pengguna, artinya informasi dapat ditampilkan secara dinamis tergantung apa yang diatur oleh pengguna. Dengan melakukan visualisasi data laporan keuangan perusahaan secara interaktif dapat dengan mudah memahami fundamental dari suatu perusahaan dan tentunya akan mengurangi tindakan spekulatif dalam berinvestasi. Dewan Syariah Nasional - Majelis Ulama Indonesia (DSN-MUI) mengeluarkan fatwa yang mengatur Prinsip Syariah di Pasar Modal termasuk pengkategorisasi saham syariah. Pada projek ini akan mengimplementasikan dashboard interaktif pada data laporan keuangan untuk menganalisis fundamental saham ISSI yang bersumber dari Yahoo Finance.
+
 ### Tampilan dashboard dark mode
 
 [![Tampilan Dashboard][dashboard-black]](images/dashboard-hitam.png)
@@ -83,8 +85,6 @@
 ### Tampilan dashboard white mode
 
 [![Tampilan Dashboard][dashboard-white]](images/dashboard-putih.png)
-
-Jumlah investor pasar modal selama 2018 -Maret 2022 mengalami kenaikan jumlah investor sebanyak 223.39 persen. Sekitar 85 -90 persen investor akan gagal, hal tersebut disebabkan para investor cenderung spekulatif dalam berinvestasi khususnya pada instrumen saham. Tindakan spekulatif dapat menjerumuskan investor kedalam kerugian. Dashboard interaktif adalah dashboard yang dalam memvisualisasikan data membutuhkan perhatian pengguna, artinya informasi dapat ditampilkan secara dinamis tergantung apa yang diatur oleh pengguna. Dengan melakukan visualisasi data laporan keuangan perusahaan secara interaktif dapat dengan mudah memahami fundamental dari suatu perusahaan dan tentunya akan mengurangi tindakan spekulatif dalam berinvestasi. Dewan Syariah Nasional - Majelis Ulama Indonesia (DSN-MUI) mengeluarkan fatwa yang mengatur Prinsip Syariah di Pasar Modal termasuk pengkategorisasi saham syariah. Pada projek ini akan mengimplementasikan dashboard interaktif pada data laporan keuangan untuk menganalisis fundamental saham ISSI yang bersumber dari Yahoo Finance.
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `oojn4`, `DashboardVisdat`, `twitter_handle`, `linkedin_username`, `fauzanfaldy4@gmail.com_client`, `fauzanfaldy4@gmail.com`, `Dashboard Interaktif Fundamental Saham ISSI`, `project_description`
 
@@ -96,22 +96,81 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
+## Tahapan Perancangan
 
-## Getting Started
+### Pengumpulan data
 
-Untuk mengakses dashboard dapat mendownload file `DASHBOARD.twb`.Setelah itu, sesuaikan konfigurasi data pada file .twb dengan `data laporan keuangan.xlsx` dan `data harga.xlsx`.
+Pada penelitian ini akan menggunakan data dari Yahoo Finance diambil dengan cara web-scraping. Pengambilan data mengguanak bahasa python dengan package yfinance. Karena platform yahoo finance tidak hanya terdapat data saham dalam negeri perlu melakukan seleksi data dilakukan untuk hanya mendapatkan saham-saham syariah yang listing di Bursa Efek Indonesia.
 
-Jika hanya ingin melihat cukup mengunjungi laman <a href="https://public.tableau.com/app/profile/fauzan.faldy.anggita/viz/DASHBOARD_16538161920600/Dashboard2?publish=yes">berikut.</a>
+1. Mengimport list nama saham syariah
 
-### Prerequisites
+```sh
+  import pandas as pd
+  data = pd.read_excel("Index Member ISSI_WINR.xlsx")
+  names = data["Kode"] + ".JK"
+  names
+```
 
-This is an example of how to list things you need to use the software and how to install them.
+2. Melakukan scraping
 
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+```sh
+  import yfinance as yf
+import pandas as pd
+names = data["Kode"] + ".JK"
+
+import yfinance as yf
+import pandas as pd
+names = data["Kode"] + ".JK"
+info_table = pd.DataFrame()
+hist_table = pd.DataFrame()
+actions_table = pd.DataFrame()
+annual_financials_table = pd.DataFrame()
+annual_balance_sheet_table = pd.DataFrame()
+annual_earnings_table = pd.DataFrame()
+annual_cashflow_table = pd.DataFrame()
+
+for name in names:
+    #info
+    stock = yf.Ticker(name)
+    info = pd.DataFrame([stock.info])
+    info["stock"] = name
+    info_table = pd.concat([info_table,info])
+
+    #historical
+    hist = pd.DataFrame(stock.history(period="max"))
+    hist["stock"] = name
+    hist_table = pd.concat([hist_table,hist])
+
+    # actions
+    actions = pd.DataFrame(stock.actions)
+    actions["stock"] = name
+    actions_table = pd.concat([actions_table,actions])
+
+    #financials
+    annual_financials = pd.DataFrame(stock.financials)
+    annual_financials = annual_financials.transpose().reset_index()
+    annual_financials["stock"] = name
+    annual_financials_table = pd.concat([annual_financials_table,annual_financials])
+
+    #balance sheet
+    annual_balance_sheet = pd.DataFrame(stock.balance_sheet)
+    annual_balance_sheet = annual_balance_sheet.transpose().reset_index()
+    annual_balance_sheet["stock"] = name
+    annual_balance_sheet_table = pd.concat([annual_balance_sheet_table,annual_balance_sheet])
+
+    #cashflow
+    annual_cashflow = pd.DataFrame(stock.cashflow)
+    annual_cashflow = annual_cashflow.transpose().reset_index()
+    annual_cashflow["stock"] = name
+    annual_cashflow_table = pd.concat([annual_cashflow_table,annual_cashflow])
+
+
+    #earnings
+    annual_earnings = pd.DataFrame(stock.earnings)
+    annual_earnings = annual_earnings.transpose().reset_index()
+    annual_earnings["stock"] = name
+    annual_earnings_table = pd.concat([annual_earnings_table,annual_earnings])
+```
 
 ### Installation
 
@@ -130,6 +189,14 @@ This is an example of how to list things you need to use the software and how to
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## Cara Mengakses
+
+Untuk mengakses dashboard dapat mendownload file `DASHBOARD.twb`.Setelah itu, sesuaikan konfigurasi data pada file .twb dengan `data laporan keuangan.xlsx` dan `data harga.xlsx`.
+
+Jika hanya ingin melihat cukup mengunjungi laman <a href="https://public.tableau.com/app/profile/fauzan.faldy.anggita/viz/DASHBOARD_16538161920600/Dashboard2?publish=yes">berikut.</a>
 
 <!-- USAGE EXAMPLES -->
 
@@ -183,7 +250,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - fauzanfaldy4@gmail.com@fauzanfaldy4@gmail.com_client.com
+Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - @fauzanfaldy4@gmail..com
 
 Project Link: [https://github.com/oojn4/DashboardVisdat](https://github.com/oojn4/DashboardVisdat)
 
