@@ -76,11 +76,11 @@
 
 ## Tentang Projek ini
 
-[![Product Name Screen Shot][dashboard-black]](images/dashboard.png)
+[![dashboard-white][dashboard-black]]
 
 Jumlah investor pasar modal selama 2018 -Maret 2022 mengalami kenaikan jumlah investor sebanyak 223.39 persen. Sekitar 85 -90 persen investor akan gagal, hal tersebut disebabkan para investor cenderung spekulatif dalam berinvestasi khususnya pada instrumen saham. Tindakan spekulatif dapat menjerumuskan investor kedalam kerugian. Dashboard interaktif adalah dashboard yang dalam memvisualisasikan data membutuhkan perhatian pengguna, artinya informasi dapat ditampilkan secara dinamis tergantung apa yang diatur oleh pengguna. Dengan melakukan visualisasi data laporan keuangan perusahaan secara interaktif dapat dengan mudah memahami fundamental dari suatu perusahaan dan tentunya akan mengurangi tindakan spekulatif dalam berinvestasi. Dewan Syariah Nasional - Majelis Ulama Indonesia (DSN-MUI) mengeluarkan fatwa yang mengatur Prinsip Syariah di Pasar Modal termasuk pengkategorisasi saham syariah. Pada projek ini akan mengimplementasikan dashboard interaktif pada data laporan keuangan untuk menganalisis fundamental saham ISSI yang bersumber dari Yahoo Finance.
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `oojn4`, `DashboardVisdat`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `Dashboard Interaktif Fundamental Saham ISSI`, `project_description`
+Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `oojn4`, `DashboardVisdat`, `twitter_handle`, `linkedin_username`, `fauzanfaldy4@gmail.com_client`, `fauzanfaldy4@gmail.com`, `Dashboard Interaktif Fundamental Saham ISSI`, `project_description`
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -96,6 +96,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
+Untuk mengakses dashboard dapat mendownload file 'Dashboard.twb' atau dapat diakses pada laman
 
 ### Prerequisites
 
@@ -176,7 +177,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - fauzanfaldy4@gmail.com@fauzanfaldy4@gmail.com_client.com
 
 Project Link: [https://github.com/oojn4/DashboardVisdat](https://github.com/oojn4/DashboardVisdat)
 
@@ -208,4 +209,5 @@ Project Link: [https://github.com/oojn4/DashboardVisdat](https://github.com/oojn
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
-[dashboard-black]: images/dashboard.png
+[dashboard-black]: images/dashboard-hitam.png
+[dashboard-white]: images/dashboard-putih.png
