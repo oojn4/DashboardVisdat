@@ -100,9 +100,9 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-Untuk mengakses dashboard dapat mendownload file `DASHBOARD.twb` atau dapat diakses pada laman (<a href="https://public.tableau.com/app/profile/fauzan.faldy.anggita/viz/DASHBOARD_16538161920600/Dashboard2?publish=yes">berikut.</a>)
+Untuk mengakses dashboard dapat mendownload file `DASHBOARD.twb`.Setelah itu, sesuaikan konfigurasi data pada file .twb dengan `data laporan keuangan.xlsx` dan `data harga.xlsx`.
+
+Jika hanya ingin melihat cukup mengunjungi laman <a href="https://public.tableau.com/app/profile/fauzan.faldy.anggita/viz/DASHBOARD_16538161920600/Dashboard2?publish=yes">berikut.</a>
 
 ### Prerequisites
 
