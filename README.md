@@ -26,23 +26,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/oojn4/DashboardVisdat">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Dashboard Visdat</h3>
+<h3 align="center">Dashboard Visdat</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Dashboard Visdat
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/oojn4/DashboardVisdat"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/oojn4/DashboardVisdat">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/oojn4/DashboardVisdat/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/oojn4/DashboardVisdat/issues">Request Feature</a>
   </p>
 </div>
 
@@ -51,189 +51,273 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
+      <a href="#tentang">Tentang Projek ini</a>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#alsumdat">Alat dan Sumber data</a>
+    </li>
+    <li>
+      <a href="#tahapanperancangan">Tahapan Perancangan</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#pengumpulan">Pengumpulan Data</a></li>
+        <li><a href="#preparasi">Preparasi data</a></li>
+        <li><a href="#visualisasi">Visualisasi Data</a></li>
+        <li><a href="#dashboard">Pembuatan Dashboard</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+## Tentang Projek ini
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<div id="tentang" align = "justify">
+Jumlah investor pasar modal selama 2018 -Maret 2022 mengalami kenaikan jumlah investor sebanyak 223.39 persen. Sekitar 85 -90 persen investor akan gagal, hal tersebut disebabkan para investor cenderung spekulatif dalam berinvestasi khususnya pada instrumen saham. Tindakan spekulatif dapat menjerumuskan investor kedalam kerugian. Dashboard interaktif adalah dashboard yang dalam memvisualisasikan data membutuhkan perhatian pengguna, artinya informasi dapat ditampilkan secara dinamis tergantung apa yang diatur oleh pengguna. Dengan melakukan visualisasi data laporan keuangan perusahaan secara interaktif dapat dengan mudah memahami fundamental dari suatu perusahaan dan tentunya akan mengurangi tindakan spekulatif dalam berinvestasi. Dewan Syariah Nasional - Majelis Ulama Indonesia (DSN-MUI) mengeluarkan fatwa yang mengatur Prinsip Syariah di Pasar Modal termasuk pengkategorisasi saham syariah. Pada projek ini akan mengimplementasikan dashboard interaktif pada data laporan keuangan untuk menganalisis fundamental saham ISSI yang bersumber dari Yahoo Finance.
+</div>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+## Alat dan Sumber Data
 
-Here's why:
+<div id="alsumdat" align = "justify">
+1. Alat
 
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should implement DRY principles to the rest of your life :smile:
+- [Tableau](https://www.tableau.com/)
+- [Python](https://www.python.org/)
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+2. Sumber data
 
-Use the `BLANK_README.md` to get started.
+- [Yahoo Finance](https://finance.yahoo.com/)
+</div>
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Tahapan Perancangan
+
+<div id="tahapan perancangan" align = "justify"></div>
+
+### Pengumpulan data
+
+<div id="pengumpulan" align = "justify">
+Pada penelitian ini akan menggunakan data dari Yahoo Finance diambil dengan cara web-scraping. Pengambilan data mengguanak bahasa python dengan package yfinance. Karena platform yahoo finance tidak hanya terdapat data saham dalam negeri perlu melakukan seleksi data dilakukan untuk hanya mendapatkan saham-saham syariah yang listing di Bursa Efek Indonesia.
+
+1. Mengimport list nama saham syariah
+
+```sh
+  import pandas as pd
+  import yfinance as yf
+
+  data = pd.read_excel("Index Member ISSI_WINR.xlsx")
+  names = data["Kode"] + ".JK"
+  names
+```
+
+2. Melakukan scraping
+
+```sh
+  info_table = pd.DataFrame()
+  hist_table = pd.DataFrame()
+  actions_table = pd.DataFrame()
+  annual_financials_table = pd.DataFrame()
+  annual_balance_sheet_table = pd.DataFrame()
+  annual_earnings_table = pd.DataFrame()
+  annual_cashflow_table = pd.DataFrame()
+
+  for name in names:
+      #info
+      stock = yf.Ticker(name)
+      info = pd.DataFrame([stock.info])
+      info["stock"] = name
+      info_table = pd.concat([info_table,info])
+
+      #historical
+      hist = pd.DataFrame(stock.history(period="max"))
+      hist["stock"] = name
+      hist_table = pd.concat([hist_table,hist])
+
+      # actions
+      actions = pd.DataFrame(stock.actions)
+      actions["stock"] = name
+      actions_table = pd.concat([actions_table,actions])
+
+      #financials
+      annual_financials = pd.DataFrame(stock.financials)
+      annual_financials = annual_financials.transpose().reset_index()
+      annual_financials["stock"] = name
+      annual_financials_table = pd.concat([annual_financials_table,annual_financials])
+
+      #balance sheet
+      annual_balance_sheet = pd.DataFrame(stock.balance_sheet)
+      annual_balance_sheet = annual_balance_sheet.transpose().reset_index()
+      annual_balance_sheet["stock"] = name
+      annual_balance_sheet_table = pd.concat([annual_balance_sheet_table,annual_balance_sheet])
+
+      #cashflow
+      annual_cashflow = pd.DataFrame(stock.cashflow)
+      annual_cashflow = annual_cashflow.transpose().reset_index()
+      annual_cashflow["stock"] = name
+      annual_cashflow_table = pd.concat([annual_cashflow_table,annual_cashflow])
+
+
+      #earnings
+      annual_earnings = pd.DataFrame(stock.earnings)
+      annual_earnings = annual_earnings.transpose().reset_index()
+      annual_earnings["stock"] = name
+      annual_earnings_table = pd.concat([annual_earnings_table,annual_earnings])
+```
+
+3. Menyimpan data
+
+```sh
+  info_table.to_csv("info_table.csv")
+  hist_table.to_csv("hist_table.csv")
+  actions_table.to_csv("actions_table.csv")
+  annual_financials_table.to_csv("annual_financials_table.csv")
+  annual_balance_sheet_table.to_csv("annual_balance_sheet_table.csv")
+  annual_earnings_table.to_csv("annual_earnings_table.csv")
+  annual_cashflow_table.to_csv("annual_cashflow_table.csv")
+```
+
+</div>
+
+### Preparasi data
+
+<div id="preparasi" align = "justify">
+Setelah mendapatkan saham syariah, dilakukan preparasi data untuk membentuk variabel yang dibutuhkan. Variabel tersebut dapat dikategorikan dalam berbagai dimensi. Dimensi yang digunakan terdiri dari:
+
+1. informasi umum perusahaan
+
+- nama
+- sektor
+- industri
+
+2. perkembangan harga saham
+
+- harga pembukaan
+- harga penutupan
+- harga tertinggi
+- harga terendah
+
+3. income statement
+
+- revenue
+- gross profit
+- operating profit
+- net profit
+
+4. balance sheet
+
+- assets
+- equity
+- liability
+- cash
+
+5. profitability
+
+- gross profit margin
+- operating profit margin
+- net profit margin
+
+6. management effectiveness
+
+- return on equity
+- return on assets
+
+7. valuation
+
+- price to book value
+- price earning ratio
+
+8. liquidity
+
+- debt equity ratio
+- cash ratio
+</div>
+
+### Visualisasi Data
+
+<div id="visualisasi" align = "justify">
+Data yang telah diseleksi kemudian dilakukan visualisasi dengan mengggunakan Tableu. Setiap data akan divisualisasikan kedalam berbagai bentuk visualisasi. Berikut merupakan jenis visualisasi dan beberapa contoh variabel yang digunakan.
+
+1. Table
+
+   [![Table][table]](images/table.png)
+
+2. Bar chart
+
+   [![Barchart][barchart1]](images/barchart1.png)
+
+3. Line chart
+
+   [![Linechart][linechart]](images/linechart.png)
+
+4. Candle stick
+
+   [![Candlestick][candlestick]](images/candlestick.png)
+
+</div>
+
+### Pembuatan Dashboard
+
+<div id="dashboard" align = "justify">
+
+Berbagai bentuk visualisasi disatupadukan kedalam dashboard. Pada tahapan ini dilakukan modifikasi terhadap visualisasi yang dibuat seperti penambahan filter, harmonisasi warna, tataletak, penambahan legend dan sebagainya.
+
+</div>
+
+#### Tampilan dashboard dark mode
+
+[![Tampilan Dashboard][dashboard-black]](images/dashboard-hitam.png)
+
+#### Tampilan dashboard white mode
+
+[![Tampilan Dashboard][dashboard-white]](images/dashboard-putih.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Built With
+<!-- CARA MENGAKSES -->
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+## Cara Mengakses
 
-- [Next.js](https://nextjs.org/)
-- [React.js](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
-- [Angular](https://angular.io/)
-- [Svelte](https://svelte.dev/)
-- [Laravel](https://laravel.com)
-- [Bootstrap](https://getbootstrap.com)
-- [JQuery](https://jquery.com)
+<div id="akses" align = "justify">
+Untuk mengakses dashboard dapat mendownload file <strong>DASHBOARD.twb</strong>.Setelah itu, sesuaikan konfigurasi data pada file .twb dengan <strong>data laporan keuangan.xlsx</strong> dan <strong>data harga.xlsx</strong>.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+Jika hanya ingin melihat cukup mengunjungi laman <a href="https://public.tableau.com/app/profile/fauzan.faldy.anggita/viz/DASHBOARD_16538161920600/Dashboard2?publish=yes">berikut.</a>
 
-<!-- GETTING STARTED -->
-
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-  - [ ] Chinese
-  - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
+</div>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTACT -->
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+<div id="contact" align = "justify">
+Fauzan Faldy Anggita - @fauzanfaldy4@gmail..com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/oojn4/DashboardVisdat](https://github.com/oojn4/DashboardVisdat)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-- [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-- [Malven's Grid Cheatsheet](https://grid.malven.co/)
-- [Img Shields](https://shields.io)
-- [GitHub Pages](https://pages.github.com)
-- [Font Awesome](https://fontawesome.com)
-- [React Icons](https://react-icons.github.io/react-icons/search)
-
+</div>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/oojn4/DashboardVisdat.svg?style=for-the-badge
+[contributors-url]: https://github.com/oojn4/DashboardVisdat/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/oojn4/DashboardVisdat.svg?style=for-the-badge
+[forks-url]: https://github.com/oojn4/DashboardVisdat/network/members
+[stars-shield]: https://img.shields.io/github/stars/oojn4/DashboardVisdat.svg?style=for-the-badge
+[stars-url]: https://github.com/oojn4/DashboardVisdat/stargazers
+[issues-shield]: https://img.shields.io/github/issues/oojn4/DashboardVisdat.svg?style=for-the-badge
+[issues-url]: https://github.com/oojn4/DashboardVisdat/issues
+[license-shield]: https://img.shields.io/github/license/oojn4/DashboardVisdat.svg?style=for-the-badge
+[license-url]: https://github.com/oojn4/DashboardVisdat/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://linkedin.com/in/fauzanfaldy
 [product-screenshot]: images/screenshot.png
+[dashboard-black]: images/dashboard-hitam.png
+[dashboard-white]: images/dashboard-putih.png
+[table]: images/table.png
+[linechart]: images/linechart.png
+[candlestick]: images/candlestick.png
+[barchart1]: images/barchart1.png
