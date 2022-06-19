@@ -78,14 +78,6 @@
 
 Jumlah investor pasar modal selama 2018 -Maret 2022 mengalami kenaikan jumlah investor sebanyak 223.39 persen. Sekitar 85 -90 persen investor akan gagal, hal tersebut disebabkan para investor cenderung spekulatif dalam berinvestasi khususnya pada instrumen saham. Tindakan spekulatif dapat menjerumuskan investor kedalam kerugian. Dashboard interaktif adalah dashboard yang dalam memvisualisasikan data membutuhkan perhatian pengguna, artinya informasi dapat ditampilkan secara dinamis tergantung apa yang diatur oleh pengguna. Dengan melakukan visualisasi data laporan keuangan perusahaan secara interaktif dapat dengan mudah memahami fundamental dari suatu perusahaan dan tentunya akan mengurangi tindakan spekulatif dalam berinvestasi. Dewan Syariah Nasional - Majelis Ulama Indonesia (DSN-MUI) mengeluarkan fatwa yang mengatur Prinsip Syariah di Pasar Modal termasuk pengkategorisasi saham syariah. Pada projek ini akan mengimplementasikan dashboard interaktif pada data laporan keuangan untuk menganalisis fundamental saham ISSI yang bersumber dari Yahoo Finance.
 
-### Tampilan dashboard dark mode
-
-[![Tampilan Dashboard][dashboard-black]](images/dashboard-hitam.png)
-
-### Tampilan dashboard white mode
-
-[![Tampilan Dashboard][dashboard-white]](images/dashboard-putih.png)
-
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `oojn4`, `DashboardVisdat`, `twitter_handle`, `linkedin_username`, `fauzanfaldy4@gmail.com_client`, `fauzanfaldy4@gmail.com`, `Dashboard Interaktif Fundamental Saham ISSI`, `project_description`
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -106,6 +98,8 @@ Pada penelitian ini akan menggunakan data dari Yahoo Finance diambil dengan cara
 
 ```sh
   import pandas as pd
+  import yfinance as yf
+
   data = pd.read_excel("Index Member ISSI_WINR.xlsx")
   names = data["Kode"] + ".JK"
   names
@@ -114,63 +108,136 @@ Pada penelitian ini akan menggunakan data dari Yahoo Finance diambil dengan cara
 2. Melakukan scraping
 
 ```sh
-  import yfinance as yf
-import pandas as pd
-names = data["Kode"] + ".JK"
+  info_table = pd.DataFrame()
+  hist_table = pd.DataFrame()
+  actions_table = pd.DataFrame()
+  annual_financials_table = pd.DataFrame()
+  annual_balance_sheet_table = pd.DataFrame()
+  annual_earnings_table = pd.DataFrame()
+  annual_cashflow_table = pd.DataFrame()
 
-import yfinance as yf
-import pandas as pd
-names = data["Kode"] + ".JK"
-info_table = pd.DataFrame()
-hist_table = pd.DataFrame()
-actions_table = pd.DataFrame()
-annual_financials_table = pd.DataFrame()
-annual_balance_sheet_table = pd.DataFrame()
-annual_earnings_table = pd.DataFrame()
-annual_cashflow_table = pd.DataFrame()
+  for name in names:
+      #info
+      stock = yf.Ticker(name)
+      info = pd.DataFrame([stock.info])
+      info["stock"] = name
+      info_table = pd.concat([info_table,info])
 
-for name in names:
-    #info
-    stock = yf.Ticker(name)
-    info = pd.DataFrame([stock.info])
-    info["stock"] = name
-    info_table = pd.concat([info_table,info])
+      #historical
+      hist = pd.DataFrame(stock.history(period="max"))
+      hist["stock"] = name
+      hist_table = pd.concat([hist_table,hist])
 
-    #historical
-    hist = pd.DataFrame(stock.history(period="max"))
-    hist["stock"] = name
-    hist_table = pd.concat([hist_table,hist])
+      # actions
+      actions = pd.DataFrame(stock.actions)
+      actions["stock"] = name
+      actions_table = pd.concat([actions_table,actions])
 
-    # actions
-    actions = pd.DataFrame(stock.actions)
-    actions["stock"] = name
-    actions_table = pd.concat([actions_table,actions])
+      #financials
+      annual_financials = pd.DataFrame(stock.financials)
+      annual_financials = annual_financials.transpose().reset_index()
+      annual_financials["stock"] = name
+      annual_financials_table = pd.concat([annual_financials_table,annual_financials])
 
-    #financials
-    annual_financials = pd.DataFrame(stock.financials)
-    annual_financials = annual_financials.transpose().reset_index()
-    annual_financials["stock"] = name
-    annual_financials_table = pd.concat([annual_financials_table,annual_financials])
+      #balance sheet
+      annual_balance_sheet = pd.DataFrame(stock.balance_sheet)
+      annual_balance_sheet = annual_balance_sheet.transpose().reset_index()
+      annual_balance_sheet["stock"] = name
+      annual_balance_sheet_table = pd.concat([annual_balance_sheet_table,annual_balance_sheet])
 
-    #balance sheet
-    annual_balance_sheet = pd.DataFrame(stock.balance_sheet)
-    annual_balance_sheet = annual_balance_sheet.transpose().reset_index()
-    annual_balance_sheet["stock"] = name
-    annual_balance_sheet_table = pd.concat([annual_balance_sheet_table,annual_balance_sheet])
-
-    #cashflow
-    annual_cashflow = pd.DataFrame(stock.cashflow)
-    annual_cashflow = annual_cashflow.transpose().reset_index()
-    annual_cashflow["stock"] = name
-    annual_cashflow_table = pd.concat([annual_cashflow_table,annual_cashflow])
+      #cashflow
+      annual_cashflow = pd.DataFrame(stock.cashflow)
+      annual_cashflow = annual_cashflow.transpose().reset_index()
+      annual_cashflow["stock"] = name
+      annual_cashflow_table = pd.concat([annual_cashflow_table,annual_cashflow])
 
 
-    #earnings
-    annual_earnings = pd.DataFrame(stock.earnings)
-    annual_earnings = annual_earnings.transpose().reset_index()
-    annual_earnings["stock"] = name
-    annual_earnings_table = pd.concat([annual_earnings_table,annual_earnings])
+      #earnings
+      annual_earnings = pd.DataFrame(stock.earnings)
+      annual_earnings = annual_earnings.transpose().reset_index()
+      annual_earnings["stock"] = name
+      annual_earnings_table = pd.concat([annual_earnings_table,annual_earnings])
 ```
+
+3. Menyimpan data
+
+```sh
+  info_table.to_csv("info_table.csv")
+  hist_table.to_csv("hist_table.csv")
+  actions_table.to_csv("actions_table.csv")
+  annual_financials_table.to_csv("annual_financials_table.csv")
+  annual_balance_sheet_table.to_csv("annual_balance_sheet_table.csv")
+  annual_earnings_table.to_csv("annual_earnings_table.csv")
+  annual_cashflow_table.to_csv("annual_cashflow_table.csv")
+```
+
+### Preparasi data
+
+Setelah mendapatkan saham syariah, dilakukan preparasi data untuk membentuk variabel yang dibutuhkan. Variabel tersebut dapat dikategorikan dalam berbagai dimensi. Dimensi yang digunakan terdiri dari:
+
+1. informasi umum perusahaan
+
+- nama
+- sektor
+- industri
+
+2. perkembangan harga saham
+
+- harga pembukaan
+- harga penutupan
+- harga tertinggi
+- harga terendah
+
+3. income statement
+
+- revenue
+- gross profit
+- operating profit
+- net profit
+
+4. balance sheet
+
+- assets
+- equity
+- liability
+- cash
+
+5. profitability
+
+- gross profit margin
+- operating profit margin
+- net profit margin
+
+6. management effectiveness
+
+- return on equity
+- return on assets
+
+7. valuation
+
+- price to book value
+- price earning ratio
+
+8. liquidity
+
+- debt equity ratio
+- cash ratio
+
+### Visualisasi Data
+
+Data yang telah diseleksi kemudian dilakukan visualisasi dengan mengggunakan Tableu. Setiap data akan divisualisasikan kedalam berbagai bentuk visualisasi.
+
+### Pembuatan Dashboard
+
+Berbagai bentuk visualisasi disatupadukan kedalam dashboard. Pada tahapan ini dilakukan modifikasi terhadap visualisasi yang dibuat seperti penambahan filter, harmonisasi warna dan tataletak dan sebagainya.
+
+#### Tampilan dashboard dark mode
+
+[![Tampilan Dashboard][dashboard-black]](images/dashboard-hitam.png)
+
+#### Tampilan dashboard white mode
+
+[![Tampilan Dashboard][dashboard-white]](images/dashboard-putih.png)
 
 ### Installation
 
