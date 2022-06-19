@@ -269,7 +269,7 @@ Berbagai bentuk visualisasi disatupadukan kedalam dashboard. Pada tahapan ini di
 
 [![Tampilan Dashboard][dashboard-black]](images/dashboard-hitam.png)
 
-#### Tampilan dashboard white mode
+#### Tampilan dashboard light mode
 
 [![Tampilan Dashboard][dashboard-white]](images/dashboard-putih.png)
 
