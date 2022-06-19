@@ -280,7 +280,7 @@ Berbagai bentuk visualisasi disatupadukan kedalam dashboard. Pada tahapan ini di
 ## Cara Mengakses
 
 <div id="akses" align = "justify">
-Untuk mengakses dashboard dapat mendownload file `DASHBOARD.twb`.Setelah itu, sesuaikan konfigurasi data pada file .twb dengan `data laporan keuangan.xlsx` dan `data harga.xlsx`.
+Untuk mengakses dashboard dapat mendownload file <strong>DASHBOARD.twb</strong>.Setelah itu, sesuaikan konfigurasi data pada file .twb dengan <strong>data laporan keuangan.xlsx</strong> dan <strong>data harga.xlsx</strong>.
 
 Jika hanya ingin melihat cukup mengunjungi laman <a href="https://public.tableau.com/app/profile/fauzan.faldy.anggita/viz/DASHBOARD_16538161920600/Dashboard2?publish=yes">berikut.</a>
 
