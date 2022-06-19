@@ -96,7 +96,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
-Untuk mengakses dashboard dapat mendownload file 'Dashboard.twb' atau dapat diakses pada laman
+Untuk mengakses dashboard dapat mendownload file `DASHBOARD.twb` atau dapat diakses pada laman <p align="right">(<a href="https://public.tableau.com/app/profile/fauzan.faldy.anggita/viz/DASHBOARD_16538161920600/Dashboard2?publish=yes">berikut.</a>)</p>
 
 ### Prerequisites
 
