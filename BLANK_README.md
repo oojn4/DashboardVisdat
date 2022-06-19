@@ -225,11 +225,20 @@ Setelah mendapatkan saham syariah, dilakukan preparasi data untuk membentuk vari
 
 ### Visualisasi Data
 
-Data yang telah diseleksi kemudian dilakukan visualisasi dengan mengggunakan Tableu. Setiap data akan divisualisasikan kedalam berbagai bentuk visualisasi.
+Data yang telah diseleksi kemudian dilakukan visualisasi dengan mengggunakan Tableu. Setiap data akan divisualisasikan kedalam berbagai bentuk visualisasi. Berikut merupakan jenis visualisasi dan beberapa contoh variabel yang digunakan.
+
+1. Table
+   [![Table][table]](images/table.png)
+2. Bar chart
+   [![Barchart][barchart]](images/barchart.png)
+3. Line chart
+   [![Linechart][linechart]](images/linechart.png)
+4. Candle stick
+   [![Candlestick][candlestick]](images/candlestick.png)
 
 ### Pembuatan Dashboard
 
-Berbagai bentuk visualisasi disatupadukan kedalam dashboard. Pada tahapan ini dilakukan modifikasi terhadap visualisasi yang dibuat seperti penambahan filter, harmonisasi warna dan tataletak dan sebagainya.
+Berbagai bentuk visualisasi disatupadukan kedalam dashboard. Pada tahapan ini dilakukan modifikasi terhadap visualisasi yang dibuat seperti penambahan filter, harmonisasi warna, tataletak, penambahan legend dan sebagainya.
 
 #### Tampilan dashboard dark mode
 
@@ -351,3 +360,7 @@ Project Link: [https://github.com/oojn4/DashboardVisdat](https://github.com/oojn
 [product-screenshot]: images/screenshot.png
 [dashboard-black]: images/dashboard-hitam.png
 [dashboard-white]: images/dashboard-putih.png
+[table]: images/table.png
+[linechart]: images/linechart.png
+[candlestick]: images/candlestick.png
+[barchart1]: images/barchart1.png
