@@ -52,23 +52,20 @@
   <ol>
     <li>
       <a href="#tentang">Tentang Projek ini</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#alsumdat">Alat dan Sumber data</a>
+    </li>
+    <li>
+      <a href="#tahapanperancangan">Tahapan Perancangan</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#pengumpulan">Pengumpulan Data</a></li>
+        <li><a href="#preparasi">Preparasi data</a></li>
+        <li><a href="#visualisasi">Visualisasi Data</a></li>
+        <li><a href="#dashboard">Pembuatan Dashboard</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -78,11 +75,12 @@
 
 <div id="tentang" align = "justify">
 Jumlah investor pasar modal selama 2018 -Maret 2022 mengalami kenaikan jumlah investor sebanyak 223.39 persen. Sekitar 85 -90 persen investor akan gagal, hal tersebut disebabkan para investor cenderung spekulatif dalam berinvestasi khususnya pada instrumen saham. Tindakan spekulatif dapat menjerumuskan investor kedalam kerugian. Dashboard interaktif adalah dashboard yang dalam memvisualisasikan data membutuhkan perhatian pengguna, artinya informasi dapat ditampilkan secara dinamis tergantung apa yang diatur oleh pengguna. Dengan melakukan visualisasi data laporan keuangan perusahaan secara interaktif dapat dengan mudah memahami fundamental dari suatu perusahaan dan tentunya akan mengurangi tindakan spekulatif dalam berinvestasi. Dewan Syariah Nasional - Majelis Ulama Indonesia (DSN-MUI) mengeluarkan fatwa yang mengatur Prinsip Syariah di Pasar Modal termasuk pengkategorisasi saham syariah. Pada projek ini akan mengimplementasikan dashboard interaktif pada data laporan keuangan untuk menganalisis fundamental saham ISSI yang bersumber dari Yahoo Finance.
-
+</div>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Dibangun Menggunakan
+## Alat dan Sumber Data
 
+<div id="alsumdat" align = "justify">
 1. Alat
 
 - [Tableau](https://www.tableau.com/)
@@ -96,8 +94,11 @@ Jumlah investor pasar modal selama 2018 -Maret 2022 mengalami kenaikan jumlah in
 
 ## Tahapan Perancangan
 
+<div id="tahapan perancangan" align = "justify"></div>
+
 ### Pengumpulan data
 
+<div id="pengumpulan" align = "justify">
 Pada penelitian ini akan menggunakan data dari Yahoo Finance diambil dengan cara web-scraping. Pengambilan data mengguanak bahasa python dengan package yfinance. Karena platform yahoo finance tidak hanya terdapat data saham dalam negeri perlu melakukan seleksi data dilakukan untuk hanya mendapatkan saham-saham syariah yang listing di Bursa Efek Indonesia.
 
 1. Mengimport list nama saham syariah
@@ -177,8 +178,11 @@ Pada penelitian ini akan menggunakan data dari Yahoo Finance diambil dengan cara
   annual_cashflow_table.to_csv("annual_cashflow_table.csv")
 ```
 
+</div>
+
 ### Preparasi data
 
+<div id="preparasi" align = "justify">
 Setelah mendapatkan saham syariah, dilakukan preparasi data untuk membentuk variabel yang dibutuhkan. Variabel tersebut dapat dikategorikan dalam berbagai dimensi. Dimensi yang digunakan terdiri dari:
 
 1. informasi umum perusahaan
@@ -228,9 +232,11 @@ Setelah mendapatkan saham syariah, dilakukan preparasi data untuk membentuk vari
 
 - debt equity ratio
 - cash ratio
+</div>
 
 ### Visualisasi Data
 
+<div id="visualisasi" align = "justify">
 Data yang telah diseleksi kemudian dilakukan visualisasi dengan mengggunakan Tableu. Setiap data akan divisualisasikan kedalam berbagai bentuk visualisasi. Berikut merupakan jenis visualisasi dan beberapa contoh variabel yang digunakan.
 
 1. Table
@@ -249,9 +255,15 @@ Data yang telah diseleksi kemudian dilakukan visualisasi dengan mengggunakan Tab
 
    [![Candlestick][candlestick]](images/candlestick.png)
 
+</div>
+
 ### Pembuatan Dashboard
 
+<div id="dashboard" align = "justify">
+
 Berbagai bentuk visualisasi disatupadukan kedalam dashboard. Pada tahapan ini dilakukan modifikasi terhadap visualisasi yang dibuat seperti penambahan filter, harmonisasi warna, tataletak, penambahan legend dan sebagainya.
+
+</div>
 
 #### Tampilan dashboard dark mode
 
@@ -267,20 +279,24 @@ Berbagai bentuk visualisasi disatupadukan kedalam dashboard. Pada tahapan ini di
 
 ## Cara Mengakses
 
+<div id="akses" align = "justify">
 Untuk mengakses dashboard dapat mendownload file `DASHBOARD.twb`.Setelah itu, sesuaikan konfigurasi data pada file .twb dengan `data laporan keuangan.xlsx` dan `data harga.xlsx`.
 
 Jika hanya ingin melihat cukup mengunjungi laman <a href="https://public.tableau.com/app/profile/fauzan.faldy.anggita/viz/DASHBOARD_16538161920600/Dashboard2?publish=yes">berikut.</a>
 
+</div>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTACT -->
 
 ## Contact
 
+<div id="contact" align = "justify">
 Fauzan Faldy Anggita - @fauzanfaldy4@gmail..com
 
 Project Link: [https://github.com/oojn4/DashboardVisdat](https://github.com/oojn4/DashboardVisdat)
 
+</div>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
