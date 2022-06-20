@@ -188,7 +188,7 @@ Setelah mendapatkan saham syariah, dilakukan preparasi data untuk membentuk vari
 
 #### Tabel dimensi, variabel, dan rumus preparasi data
 
-[![Tabel][tabel]](images/table.jpeg)
+[![Tabel Preparasi data][tabel]](images/table.jpeg)
 
 ### Visualisasi Data
 
