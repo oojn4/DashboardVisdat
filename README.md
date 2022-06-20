@@ -183,56 +183,12 @@ Pada penelitian ini akan menggunakan data dari Yahoo Finance diambil dengan cara
 ### Preparasi data
 
 <div id="preparasi" align = "justify">
-Setelah mendapatkan saham syariah, dilakukan preparasi data untuk membentuk variabel yang dibutuhkan. Variabel tersebut dapat dikategorikan dalam berbagai dimensi. Dimensi yang digunakan terdiri dari:
-
-1. informasi umum perusahaan
-
-- nama
-- sektor
-- industri
-
-2. perkembangan harga saham
-
-- harga pembukaan
-- harga penutupan
-- harga tertinggi
-- harga terendah
-
-3. income statement
-
-- revenue
-- gross profit
-- operating profit
-- net profit
-
-4. balance sheet
-
-- assets
-- equity
-- liability
-- cash
-
-5. profitability
-
-- gross profit margin
-- operating profit margin
-- net profit margin
-
-6. management effectiveness
-
-- return on equity
-- return on assets
-
-7. valuation
-
-- price to book value
-- price earning ratio
-
-8. liquidity
-
-- debt equity ratio
-- cash ratio
+Setelah mendapatkan saham syariah, dilakukan preparasi data untuk membentuk variabel yang dibutuhkan.  Data masih memiliki satuan rupiah dan US dollar sehingg dilakukan konversi ke rupiah dengan mengali nilai tukar rupiah setiap akhir tahun. Variabel tersebut dapat dikategorikan dalam berbagai dimensi. Dimensi, variabel, dan rumus preparasi data yang digunakan adalah sebagai berikut.
 </div>
+
+#### Tabel dimensi, variabel, dan rumus preparasi data
+
+[![Tabel][tabel]](images/table.jpeg)
 
 ### Visualisasi Data
 
@@ -323,3 +279,4 @@ Project Link: [https://github.com/oojn4/DashboardVisdat](https://github.com/oojn
 [linechart]: images/linechart.png
 [candlestick]: images/candlestick.png
 [barchart1]: images/barchart1.png
+[tabel]: images/table.jpeg
