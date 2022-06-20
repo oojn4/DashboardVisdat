@@ -188,7 +188,7 @@ Setelah mendapatkan saham syariah, dilakukan preparasi data untuk membentuk vari
 
 #### Tabel dimensi, variabel, dan rumus preparasi data
 
-[![Tabel Preparasi data][tabel]](images/table.jpeg)
+[![Tabel Preparasi data][tabel]](images/tablepreparasi.jpeg)
 
 ### Visualisasi Data
 
@@ -230,6 +230,10 @@ Berbagai bentuk visualisasi disatupadukan kedalam dashboard. Pada tahapan ini di
 [![Tampilan Dashboard][dashboard-white]](images/dashboard-putih.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+#### Tampilan tombol untuk mengganti tema dashboard
+
+[![Tombol][tombol]](images/tombol.png)
 
 <!-- CARA MENGAKSES -->
 
@@ -280,3 +284,4 @@ Project Link: [https://github.com/oojn4/DashboardVisdat](https://github.com/oojn
 [candlestick]: images/candlestick.png
 [barchart1]: images/barchart1.png
 [tabel]: images/tablepreparasi.jpeg
+[tombol]: images/tombol.png
