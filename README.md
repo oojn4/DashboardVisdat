@@ -279,4 +279,4 @@ Project Link: [https://github.com/oojn4/DashboardVisdat](https://github.com/oojn
 [linechart]: images/linechart.png
 [candlestick]: images/candlestick.png
 [barchart1]: images/barchart1.png
-[tabel]: images/table.jpeg
+[tabel]: images/tablepreparasi.jpeg
