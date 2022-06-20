@@ -219,11 +219,15 @@ Data yang telah diseleksi kemudian dilakukan visualisasi dengan mengggunakan Tab
 
 Berbagai bentuk visualisasi disatupadukan kedalam dashboard. Pada tahapan ini dilakukan modifikasi terhadap visualisasi yang dibuat seperti penambahan filter, harmonisasi warna, tataletak, penambahan legend dan sebagainya.
 
+Dashboard dibuat dengan range ukuran 1200-1300 x 800-900. Pengguna dapat memilih saham apa yang akan dilihat visualisasi data laporan keuangannya. Kemudian, pengguna dapat memilih dua saham untuk dapat dibandingkan. Fitur ini dibuat karena kecenderungan investor akan membandingkan fundamental saham dibanding hanya melihat fundamental satu saham. Karena terdapat banyak dimensi yang divisualisasikan maka terdapat fitur memilih chart agar dashboard tidak terlalu penuh sehingga pengguna dapat membandingkan dua saham dalam setiap dimensi. Selain itu, pada grafik perkembangan harga saham terdapat fitur memilih rentang tanggal untuk melihat perkembangan harga saham pada rentang waktu tertentu.
+
 </div>
 
 #### Tampilan dashboard dark mode
 
 [![Tampilan Dashboard][dashboard-black]](images/dashboard-hitam.png)
+
+Dashboard juga disediakan dalam light mode untuk pengguna yang tidak menyukai dark mode. Dasboard dengan light mode dapat dilihat pada gambar berikut. Untuk mengganti tampilan dari dark mode ke light mode maupun sebaliknya, pengguna perlu menekan tombol pada pojok kiri atas.
 
 #### Tampilan dashboard light mode
 
